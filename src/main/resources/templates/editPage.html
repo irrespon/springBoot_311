@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+Пользователь<br /><br />
+<form th:method="POST" th:action="@{/edit}" th:object="${user}">
+    <input type="hidden" th:field="*{id}" id="id">
+    <label for="name" >Имя</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="surname" >Фамилия</label>
+    <input type="text" th:field="*{surname}" id="surname">
+    <br /><br />
+    <input type="submit" value="Сохранить"/>
+</form>
+
+</body>
+</html>

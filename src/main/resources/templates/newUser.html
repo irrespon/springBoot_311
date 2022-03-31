@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пользователь</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+    <label for="name" >Введите имя</label>
+    <input type="text"th:field="*{name}" id="name">
+    <label for="surname" >Введите фамилию</label>
+    <input type="text"th:field="*{surname}" id="surname">
+    <br/>
+    <input type="submit" value="Создать"/>
+</form>
+</body>
+</html>

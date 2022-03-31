@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+<h2>Пользователи</h2>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Исправить</th>
+        </tr>
+        <tbody>
+        <tr th:each = "user: ${users}">
+            <td th:text="${user.getName()}"></td>
+            <td th:text="${user.getSurname()}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${user.getId()})}">Редактировать</a>
+                <a th:href="@{/delete/{id}(id=${user.getId()})}">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<h2>Добавить</h2>
+<a th:href="@{/newUser}">Добавить нового пользователя</a>
+</body>
+</html>
