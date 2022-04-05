@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Controller
@@ -36,7 +37,7 @@ public class UserController {
 
     @GetMapping("/newUser")
     public String newUser (Model model) {
-        model.addAttribute("user",new User());
+        model.addAttribute("user", new User());
         return "newUser";
 
     }
@@ -64,6 +65,14 @@ public class UserController {
         User user = userService.getById(id);
         userService.delete(user);
         return "redirect:/";
+    }
+
+    @PostConstruct
+    public void addToDBUser(){
+        userService.add(new User("Иван", "Иванов"));
+        userService.add(new User("Петр", "Петров"));
+        userService.add(new User("Сидр", "Сидоров"));
+        userService.add(new User("Иван", "Грозный"));
     }
 
 }
